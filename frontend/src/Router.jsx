@@ -19,6 +19,7 @@ export default function AppRouter() {
       <Route path="/stays" element={<Stays />} />
       <Route path="/about" element={<About />} />
       <Route path="/contact" element={<Contact />} />
+      <Route path ="/:propertyId" element={StayDetails}/>
       <Route path="/stays/detail" element={<StayDetails/>} />
       <Route path="/admin/create-temp" element={<CreateAdminTemp />} />
       {/* ADMIN ROUTES */}

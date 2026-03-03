@@ -120,7 +120,7 @@ export default function Home() {
         <div className="story-container">
           {/* LEFT VISUAL */}
           <div className="story-visual">
-            <div className="story-card story-card-1">
+            <div className="story-card story-card-1 ">
               <span className="story-label">
                 The Art of
                 <br />

@@ -1,0 +1,163 @@
+.property-page {
+  padding: 50px 60px;
+  font-family: 'Inter', sans-serif;
+}
+
+/* ================= HERO ================= */
+
+.property-hero {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.hero-main img {
+  width: 100%;
+  height: 520px;
+  object-fit: cover;
+  border-radius: 6px;
+  background: #2a1a12;
+}
+
+.hero-thumbs {
+  display: flex;
+  gap: 12px;
+}
+
+.hero-thumbs img {
+  width: 110px;
+  height: 80px;
+  border-radius: 4px;
+  object-fit: cover;
+  opacity: 0.6;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.hero-thumbs img.active-thumb,
+.hero-thumbs img:hover {
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+/* ================= DETAILS ================= */
+
+.property-details {
+  padding: 40px 0;
+  max-width: 650px;
+}
+
+.p-index {
+  font-size: 2rem;
+  color: #cab09b;
+}
+
+.p-location {
+  letter-spacing: 0.2em;
+  font-size: 0.75rem;
+  color: #9a8f84;
+  margin-bottom: 14px;
+}
+
+.p-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 3.4rem;
+  margin-bottom: 18px;
+  color: #2e2622;
+}
+
+.p-title em {
+  font-style: italic;
+  color: #c59a78;
+}
+
+.p-description {
+  color: #5d544d;
+  line-height: 1.8;
+  margin-bottom: 24px;
+}
+
+.p-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.p-tag {
+  padding: 6px 14px;
+  background: #f5eee7;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  color: #7a6f64;
+}
+
+/* ================= BOOKING PANEL ================= */
+
+.booking-panel {
+  background: #f9f6f2;
+  padding: 35px;
+  border-radius: 8px;
+  margin-top: 40px;
+  max-width: 380px;
+}
+
+.booking-panel h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.8rem;
+  margin-bottom: 18px;
+}
+
+.booking-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 25px;
+}
+
+.field label {
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  color: #85786e;
+}
+
+.field input,
+.field select {
+  width: 100%;
+  padding: 10px 12px;
+  background: #fcf8f4;
+  border: 1px solid #ded6ce;
+  font-size: 0.9rem;
+  border-radius: 4px;
+}
+
+.price-box {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+  margin-bottom: 25px;
+  border-top: 1px solid #e4dcd3;
+}
+
+.price-label {
+  color: #8a7f74;
+}
+
+.price-value {
+  font-size: 1.4rem;
+  color: #2c2420;
+}
+
+.book-btn {
+  width: 100%;
+  padding: 14px;
+  background: #3a2a21;
+  color: white;
+  border: none;
+  letter-spacing: 0.15em;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.book-btn:hover {
+  background: #000;
+}

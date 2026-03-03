@@ -1,0 +1,79 @@
+.admin-login-page {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.admin-login-box {
+  background: #faf8f4;
+  padding: 40px;
+  border-radius: 8px;
+  width: 320px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.admin-login-box input {
+  padding: 10px;
+  border: 1px solid #d6ccc2;
+}
+
+.admin-login-box button {
+  padding: 12px;
+  background: #3b2a21;
+  color: white;
+  border: none;
+}
+
+.admin-dashboard {
+  display: flex;
+}
+
+.sidebar {
+  width: 230px;
+  background: #3b2a21;
+  color: white;
+  padding: 20px;
+  height: 100vh;
+}
+
+.sidebar button {
+  width: 100%;
+  background: none;
+  color: white;
+  border: 1px solid #ddc5b0;
+  padding: 10px;
+  margin-top: 12px;
+}
+
+.main-content {
+  flex: 1;
+  padding: 40px;
+}
+
+.card {
+  background: white;
+  padding: 30px;
+  border-radius: 6px;
+}
+
+.property-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.property-item {
+  display: flex;
+  gap: 14px;
+  border-bottom: 1px solid #ddd;
+  padding: 10px;
+}
+
+.property-item img {
+  width: 100px;
+  height: 80px;
+  object-fit: cover;
+}

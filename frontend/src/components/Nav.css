@@ -1,0 +1,108 @@
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 26px 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background: transparent; /* transparent at top */
+  backdrop-filter: none;
+  border-bottom: 1px solid transparent;
+  transition: 0.35s ease;
+
+  z-index: 1000;
+}
+
+nav.scrolled {
+  background: rgba(250, 248, 244, 0.97);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border);
+  padding: 14px 60px; /* shrink */
+  font-weight: 100;
+  color: black;
+}
+
+.nav-logo {
+  font-family: 'Cormorant Garamond', serif;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  font-size: 1.4rem;
+  text-decoration: none;
+  color: white;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 34px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  font-size: 0.68rem;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  transition: 0.25s ease;
+}
+
+.nav-links a:hover {
+  color: var(--muted);
+}
+
+.nav-book {
+  padding: 10px 24px;
+  border: 1px solid white;
+  font-size: 0.64rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: white;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.nav-book:hover {
+  background: var(--rose);
+  border-color: var(--rose);
+  color: #fff;
+}
+/* MOBILE: hide center links only */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+
+  nav {
+    padding: 20px 30px;
+  }
+
+  nav.scrolled {
+    padding: 12px 30px;
+  }
+
+  .nav-logo {
+    font-size: 1.2rem;
+    letter-spacing: 0.2em;
+  }
+
+  .nav-book {
+    padding: 8px 20px;
+    font-size: 0.6rem;
+    letter-spacing: 0.18em;
+  }
+}
+/* When nav is scrolled - make text black */
+nav.scrolled .nav-logo {
+  color: black !important;
+}
+
+nav.scrolled .nav-links a {
+  color: black !important;
+}
+
+nav.scrolled .nav-book {
+  color: black !important;
+  border-color: black !important;
+}

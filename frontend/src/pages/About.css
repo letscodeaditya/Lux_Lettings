@@ -1,0 +1,423 @@
+/* =========================================
+   PAGE HERO
+========================================= */
+
+.about-hero {
+  position: relative;
+  height: 88vh;
+  width: 100%;
+  padding: 0 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+
+  /* deep luxury brown gradient */
+  background: radial-gradient(
+      ellipse 70% 45% at center,
+      rgba(90, 60, 40, 0.2) 0%,
+      rgba(30, 20, 10, 0.9) 60%
+    ),
+    #1a110d;
+}
+
+/* Subtle grid lines over the hero */
+.about-hero-grid {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0.05) 1px,
+      transparent 1px
+    ),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 60px 60px;
+  opacity: 0.08;
+}
+
+/* Overlay fade */
+.about-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(20, 12, 10, 0.7), transparent 60%);
+}
+
+.about-hero-content {
+  position: relative;
+  z-index: 3;
+  max-width: 780px;
+}
+
+/* Breadcrumb */
+.breadcrumb {
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255, 230, 210, 0.6);
+  margin-bottom: 24px;
+}
+
+.breadcrumb span {
+  margin: 0 6px;
+  color: rgba(255, 230, 210, 0.45);
+}
+
+/* Section mini-tag */
+.hero-mini-tag {
+  font-size: 0.7rem;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: #d6b399;
+  margin-bottom: 26px;
+}
+
+/* Big Hero Title */
+.about-hero-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 5.4rem;
+  font-weight: 300;
+  color: #fff8f1;
+  line-height: 1.05;
+  margin-bottom: 28px;
+}
+
+.about-hero-title em {
+  font-style: italic;
+  color: #d8b49b;
+}
+
+/* Center description */
+.about-hero-text {
+  font-size: 0.92rem;
+  color: rgba(255, 240, 230, 0.75);
+  line-height: 1.9;
+  max-width: 560px;
+  margin: 0 auto 70px;
+}
+
+/* Scroll indicator */
+.scroll-indicator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.scroll-line {
+  height: 70px;
+  width: 1px;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 230, 210, 0.55),
+    transparent
+  );
+}
+
+.scroll-indicator span {
+  font-size: 0.62rem;
+  letter-spacing: 0.26em;
+  color: rgba(255, 230, 210, 0.6);
+  text-transform: uppercase;
+}
+
+/* =========================================
+   STORY SECTION
+========================================= */
+
+.story-section {
+  padding: 160px 60px;
+  display: flex;
+  justify-content: space-between;
+  gap: 80px;
+  background: #faf8f4;
+}
+
+.story-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.section-tag {
+  color: #c4997b;
+  letter-spacing: 0.28em;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+}
+
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 3.4rem;
+  font-weight: 300;
+  line-height: 1.15;
+}
+
+.section-title em {
+  color: #c4997b;
+}
+
+.section-body {
+  color: #7a6e68;
+  font-size: 0.92rem;
+  line-height: 1.85;
+  max-width: 520px;
+}
+
+.story-cards {
+  flex: 1;
+  position: relative;
+  height: 520px;
+}
+
+.story-card {
+  border-radius: 0;
+  position: absolute;
+}
+
+.card-1 {
+  width: 75%;
+  height: 75%;
+  top: 0;
+  left: 0;
+  background: linear-gradient(135deg, var(--blush), var(--rose));
+  display: flex;
+  align-items: flex-end;
+  padding: 26px;
+}
+
+.card-2 {
+  width: 55%;
+  height: 55%;
+  bottom: 0;
+  right: 0;
+  background: linear-gradient(135deg, var(--sage), #3d5c3a);
+}
+
+.card-label {
+  color: white;
+  font-size: 1.6rem;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+}
+
+.story-accent {
+  position: absolute;
+  top: 32%;
+  left: 68%;
+  width: 85px;
+  height: 85px;
+  border: 1px solid #c4997b;
+  opacity: 0.35;
+  transform: rotate(45deg);
+}
+
+/* =========================================
+   COLLAGE SECTION
+========================================= */
+
+.collage {
+  padding: 90px 60px;
+  display: flex;
+  gap: 50px;
+  background: #faf8f4;
+}
+
+.collage-left,
+.collage-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.collage-img {
+  width: 100%;
+  height: 380px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.collage-right .img-2 {
+  height: 260px;
+}
+
+.collage-right .img-3 {
+  height: 340px;
+}
+
+/* =========================================
+   PHILOSOPHY SECTION
+========================================= */
+
+.host-philosophy {
+  padding: 80px 60px;
+  background: #faf8f4;
+  text-align: center;
+}
+
+.host-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 3.6rem;
+  font-weight: 300;
+  color: #2a2420;
+  line-height: 1.1;
+  margin-bottom: 16px;
+}
+
+.host-title em {
+  font-style: italic;
+  color: #c4997b;
+}
+
+.host-divider {
+  width: 50px;
+  height: 2px;
+  background: #d9c7b6;
+  margin: 20px auto 30px;
+}
+
+.host-sub {
+  color: #7a6e68;
+  font-size: 0.92rem;
+  max-width: 700px;
+  margin: 0 auto 90px;
+  line-height: 1.8;
+}
+
+/* HOST GRID */
+.host-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0;
+  margin-top: 40px;
+}
+
+/* CARD BASE */
+.host-item {
+  text-align: left;
+  padding: 60px 50px;
+  background: transparent;
+  border-right: 1px solid #e7ddd4;
+  border-left: 1px solid transparent;
+  transition: 0.35s ease;
+}
+
+/* Borders between cards */
+.host-item:nth-child(1) {
+  border-left: none;
+}
+.host-item:nth-child(3) {
+  border-right: none;
+}
+
+/* NUMBER */
+.host-number {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 3.8rem;
+  font-weight: 300;
+  color: #e2d3c5;
+  display: block;
+  margin-bottom: 26px;
+  transition: 0.35s ease;
+}
+
+/* HEADING */
+.host-heading {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.6rem;
+  font-weight: 300;
+  margin-bottom: 18px;
+  color: #2a2420;
+  transition: 0.35s ease;
+}
+
+/* BODY TEXT */
+.host-text {
+  color: #7a6e68;
+  font-size: 0.92rem;
+  line-height: 1.8;
+  max-width: 420px;
+  transition: 0.35s ease;
+}
+
+/* ===========================
+   HOVER ANIMATION (REAL EFFECT)
+=========================== */
+.host-item:hover {
+  background: #f6f1eb; /* soft beige highlight */
+  border-color: #d8c4b6; /* slightly darker border */
+  transform: translateY(-6px); /* subtle lift */
+}
+
+/* Number becomes warmer */
+.host-item:hover .host-number {
+  color: #c4997b;
+}
+
+/* Heading slightly darkens */
+.host-item:hover .host-heading {
+  color: #5a4a42;
+}
+
+/* Description slightly warm */
+.host-item:hover .host-text {
+  color: #8b7a72;
+}
+
+/* Smooth shadow on hover (subtle premium) */
+.host-item:hover {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.05);
+}
+
+/* =========================================
+   QUOTE BANNER
+========================================= */
+
+.quote-banner {
+  position: relative;
+  height: 360px;
+  background: linear-gradient(155deg, #4a3525, #2a1c12);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 60px;
+  color: white;
+}
+
+.quote-banner .quote-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(20, 14, 10, 0.45);
+}
+
+.quote-content {
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+}
+
+.quote-content blockquote {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.2rem;
+  font-style: italic;
+  line-height: 1.5;
+  text-align: center;
+  font-weight: 300;
+}
+
+/* =========================================
+   REVEAL ANIMATION (same as your project)
+========================================= */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: 0.9s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}

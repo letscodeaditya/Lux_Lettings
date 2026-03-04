@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import axios from 'axios';
+import api from '../api/axios';
+
 
 export default function CreateAdminTemp() {
   const [email, setEmail] = useState('');
@@ -10,12 +11,12 @@ export default function CreateAdminTemp() {
     e.preventDefault();
 
     try {
-      const res = await axios.post(
+      const res = await api.post(
         '/api/temp/create-temp-admin',
         {
           email,
           password,
-        }
+        } 
       );
 
       setMsg(res.data.message);

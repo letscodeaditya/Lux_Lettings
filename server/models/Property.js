@@ -1,19 +1,42 @@
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 
 const propertySchema = new mongoose.Schema({
-  name: { type: String, required: true },
-  location: { type: String, required: true },
-  description: { type: String, required: true },
-  price: { type: Number, required: true },
 
-  capacity: { type: Number, required: true },
-
-  nearby: {
-    type: [String],   // array of strings
-    required: true,
+  name: {
+    type: String,
+    required: true
   },
 
-  createdAt: { type: Date, default: Date.now }
-});
+  location: {
+    type: String,
+    required: true
+  },
 
-export default mongoose.model('Property', propertySchema);
+  price: {
+    type: Number,
+    required: true
+  },
+
+  description: {
+    type: String
+  },
+
+  capacity: {
+    type: Number
+  },
+
+  nearby: [
+    {
+      type: String
+    }
+  ],
+
+  images: [
+    {
+      type: String
+    }
+  ]
+
+}, { timestamps: true });
+
+export default mongoose.model("Property", propertySchema);

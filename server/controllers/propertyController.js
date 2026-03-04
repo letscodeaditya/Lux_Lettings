@@ -13,13 +13,15 @@ export const getProperty = async (req, res) => {
 
 export const createProperty = async (req, res) => {
   try {
+
     const {
       name,
       location,
       price,
       description,
       capacity,
-      nearby
+      nearby,
+      images   // 👈 receive images array
     } = req.body;
 
     const property = new Property({
@@ -28,7 +30,8 @@ export const createProperty = async (req, res) => {
       price,
       description,
       capacity,
-      nearby
+      nearby,
+      images   // 👈 store images
     });
 
     await property.save();
@@ -40,8 +43,14 @@ export const createProperty = async (req, res) => {
     });
 
   } catch (err) {
+
     console.error("Create Property Error:", err);
-    res.status(500).json({ message: "Server Error", error: err.message });
+
+    res.status(500).json({
+      message: "Server Error",
+      error: err.message
+    });
+
   }
 };
 

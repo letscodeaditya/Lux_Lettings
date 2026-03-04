@@ -1,0 +1,104 @@
+.msg-container {
+  min-height: 80vh;
+  padding: 100px 20px;
+  background: #f6f7fb;
+  font-family: "Inter", sans-serif;
+}
+
+.msg-container h2 {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 40px;
+  color: #1a1a1a;
+  width: 90%;
+}
+
+/* Center card */
+.msg-card {
+  max-width: 1100px;
+  margin: auto;
+  background: white;
+  border-radius: 14px;
+  padding: 30px;
+  box-shadow: 0 10px 35px rgba(0,0,0,0.08);
+}
+
+/* Table */
+
+.msg-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.msg-table thead {
+  background: #f4f6fb;
+}
+
+.msg-table th {
+  text-align: left;
+  padding: 16px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #444;
+}
+
+.msg-table td {
+  padding: 16px;
+  border-top: 1px solid #eee;
+  color: #555;
+}
+
+.msg-table tr:hover {
+  background: #fafafa;
+}
+
+/* Email styling */
+
+.email-text {
+  color: #6b6bff;
+  font-weight: 500;
+}
+
+/* Message preview */
+
+.msg-preview {
+  max-width: 300px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Pagination */
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.pagination button {
+  padding: 8px 18px;
+  border-radius: 8px;
+  border: none;
+  background: #6b6bff;
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.pagination button:hover {
+  background: #5757e6;
+}
+
+.pagination button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+.page-text {
+  font-weight: 500;
+  color: #444;
+}

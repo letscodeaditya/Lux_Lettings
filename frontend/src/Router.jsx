@@ -10,6 +10,8 @@ import AdminProtected from './routes/AdminProtected';
 import CreateAdminTemp from './pages/CreateAdminTemp';
 import StayDetails from './pages/StayDetails';
 import Payment from './pages/Payment';
+import CreateProperty from './components/CreateProperty';
+import AdminMessages from './pages/AdminMessages';
 ;
 
 export default function AppRouter() {
@@ -22,8 +24,10 @@ export default function AppRouter() {
       <Route path="/about" element={<About />} />
       <Route path="/contact" element={<Contact />} />
       <Route path ="/stays/:id" element={<StayDetails/>}/>
-      <Route path="/admin/create-temp" element={<CreateAdminTemp />} />
       <Route path="/payment/:id/:start/:end/:nights/:amount" element={<Payment/>}/>
+      <Route path="/admin/create-temp" element={<CreateAdminTemp />} />
+
+
       {/* ADMIN ROUTES */}
       <Route path="/admin/login" element={<AdminLogin />} />
 
@@ -32,6 +36,22 @@ export default function AppRouter() {
         element={
           <AdminProtected>
             <AdminDashboard />
+          </AdminProtected>
+        }
+      />
+      <Route
+        path="/admin/create-property"
+        element={
+          <AdminProtected>
+            <CreateProperty/>
+          </AdminProtected>
+        }
+      />
+      <Route
+        path="/admin/messages"
+        element={
+          <AdminProtected>
+            <AdminMessages/>
           </AdminProtected>
         }
       />

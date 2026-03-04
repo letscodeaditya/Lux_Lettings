@@ -1,92 +1,50 @@
-/* Admin Container */
-.admin-dashboard {
-  display: flex;
-  height: 100vh;
+.admin-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg,#f6f7fb,#eef1f6);
+  padding: 100px 40px;
+  font-family: 'Poppins', sans-serif;
 }
 
-/* Sidebar */
-.sidebar {
-  width: 240px;
-  background: #f4f0e9;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.sidebar h3 {
-  margin-bottom: 20px;
-  font-size: 20px;
-}
-
-/* Main Content */
-.main-content {
-  flex: 1;
-  background: #fcfaf6;
-  padding: 30px;
-  overflow-y: auto;
-}
-
-/* Center the form container */
-.form-wrapper {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  padding-top: 30px;
-}
-
-/* Form box */
-.create-property-form {
-  width: 100%;
-  max-width: 480px;
-  background: white;
-  padding: 25px;
-  border-radius: 12px;
-  box-shadow: 0px 0px 20px rgba(0,0,0,0.05);
-}
-
-/* Headings */
-.create-property-form h2 {
-  margin-bottom: 20px;
+.admin-title{
+  font-size: 32px;
   font-weight: 600;
+  margin-bottom: 40px;
+  color:#333;
 }
 
-/* Input fields */
-.create-property-form input,
-.create-property-form textarea {
-  width: 100%;
-  padding: 12px;
-  background: #faf5ef;
-  border: 1px solid #e4dfd9;
-  border-radius: 8px;
-  margin-bottom: 15px;
-  font-size: 14px;
+.dashboard-grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
+  gap:30px;
 }
 
-.create-property-form textarea {
-  resize: none;
+.dashboard-card{
+  background:white;
+  border-radius:16px;
+  padding:40px 30px;
+  cursor:pointer;
+  transition:0.3s;
+  box-shadow:0 8px 20px rgba(0,0,0,0.05);
+  border:1px solid rgba(0,0,0,0.04);
 }
 
-/* Submit Button */
-.create-btn {
-  width: 100%;
-  padding: 12px;
-  background: #000;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: 0.2s;
+.dashboard-card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 15px 35px rgba(0,0,0,0.1);
 }
 
-.create-btn:hover {
-  background: #222;
+.card-icon{
+  font-size:34px;
+  color:#7a5af8;
+  margin-bottom:15px;
 }
 
-/* Success / error message */
-.message {
-  color: green;
-  margin-bottom: 10px;
-  font-weight: 500;
+.dashboard-card h3{
+  font-size:20px;
+  margin-bottom:5px;
+}
+
+.dashboard-card p{
+  color:#777;
+  font-size:14px;
 }

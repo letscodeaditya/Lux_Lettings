@@ -55,12 +55,12 @@ export default function Footer() {
           navigate("/admin/login");
         }}>admin</a>
             </li>
-            <li>
+            {/* <li>
               <a href="" onClick={(e) => {
           e.preventDefault();
           navigate("/admin/create-temp");
         }}>admin</a>
-            </li>
+            </li> */}
           </ul>
         </div>
 

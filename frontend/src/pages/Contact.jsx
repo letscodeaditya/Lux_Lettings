@@ -1,6 +1,48 @@
+import { useState } from "react";
+import api from "../api/axios";
 import "./Contact.css";
 
 export default function Contact() {
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    property: "",
+    enquiryType: "",
+    message: "",
+  });
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = async (e) => {
+  e.preventDefault();
+
+  try {
+    const res = await api.post("/api/contact/query", formData);
+
+    alert("Message sent successfully!");
+
+    setFormData({
+      firstName: "",
+      lastName: "",
+      email: "",
+      phone: "",
+      property: "",
+      enquiryType: "",
+      message: "",
+    });
+
+  } catch (err) {
+    console.error(err);
+    alert("Server error");
+  }
+};
   return (
     <div className="contact-page">
 
@@ -36,57 +78,94 @@ export default function Contact() {
             or simply wish to say hello — our team is ready to respond within an hour.
           </p>
 
-          <form className="contact-form">
+          <form className="contact-form" onSubmit={handleSubmit}>
 
             <div className="row">
               <div className="field">
                 <label>FIRST NAME *</label>
-                <input type="text" placeholder="Your first name" />
+                <input
+  name="firstName"
+  value={formData.firstName}
+  onChange={handleChange}
+  type="text"
+  placeholder="Your first name"
+/>
               </div>
 
               <div className="field">
                 <label>LAST NAME *</label>
-                <input type="text" placeholder="Your last name" />
+                <input
+  name="lastName"
+  value={formData.lastName}
+  onChange={handleChange}
+  type="text"
+  placeholder="Your last name"
+/>
               </div>
             </div>
 
             <div className="row">
               <div className="field">
                 <label>EMAIL ADDRESS *</label>
-                <input type="email" placeholder="your@email.com" />
+               <input
+  name="email"
+  value={formData.email}
+  onChange={handleChange}
+  type="email"
+  placeholder="your@email.com"
+/>
               </div>
 
               <div className="field">
                 <label>PHONE NUMBER</label>
-                <input type="text" placeholder="+91 or +44" />
+                <input
+  name="phone"
+  value={formData.phone}
+  onChange={handleChange}
+  type="text"
+  placeholder="+91 or +44"
+/>
               </div>
             </div>
 
             <div className="row">
               <div className="field">
                 <label>PROPERTY</label>
-                <select>
-                  <option>Select a property</option>
-                  <option>Garden Retreat</option>
-                  <option>Boutique Stay</option>
-                  <option>Urban Studio</option>
-                </select>
+               <select
+  name="property"
+  value={formData.property}
+  onChange={handleChange}
+>
+  <option value="">Select a property</option>
+  <option value="Garden Retreat">Garden Retreat</option>
+  <option value="Boutique Stay">Boutique Stay</option>
+  <option value="Urban Studio">Urban Studio</option>
+</select>
               </div>
 
               <div className="field">
                 <label>ENQUIRY TYPE</label>
-                <select>
-                  <option>Select type</option>
-                  <option>Booking</option>
-                  <option>Event</option>
-                  <option>General Query</option>
-                </select>
+                <select
+  name="enquiryType"
+  value={formData.enquiryType}
+  onChange={handleChange}
+>
+  <option value="">Select type</option>
+  <option value="Booking">Booking</option>
+  <option value="Event">Event</option>
+  <option value="General Query">General Query</option>
+</select>
               </div>
             </div>
 
             <div className="field">
               <label>YOUR MESSAGE *</label>
-              <textarea placeholder="Tell us how we can help..."></textarea>
+             <textarea
+  name="message"
+  value={formData.message}
+  onChange={handleChange}
+  placeholder="Tell us how we can help..."
+></textarea>
             </div>
 
             <button className="send-btn">SEND MESSAGE</button>

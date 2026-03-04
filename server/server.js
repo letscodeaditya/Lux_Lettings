@@ -7,6 +7,7 @@ import propertyRoutes from './routes/propertyRoutes.js';
 import paymentRoutes from './routes/paymentRoutes.js';
 import auth from './routes/auth.js';
 import bookingRoutes from'./routes/bookingRoutes.js';
+import contactRoutes from "./routes/contactRoutes.js";
 
 dotenv.config();
 const port = 3010;
@@ -21,5 +22,6 @@ app.use('/api/properties', propertyRoutes);
 app.use('/api/payments', paymentRoutes);
 app.use('/api/temp', tempAdminRoute);
 app.use('/api/booking', bookingRoutes);
+app.use("/api/contact", contactRoutes);
 
 app.listen(port, () => console.log(`Server running http://localhost:${port}`));

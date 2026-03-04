@@ -1,7 +1,8 @@
 import { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 export default function Home() {
+  const navigate = useNavigate();
   useEffect(() => {
     // NAV SCROLL EFFECT — already exists in Navbar.jsx
     // so we do not repeat it here.
@@ -85,7 +86,10 @@ export default function Home() {
           </p>
 
           <div className="hero-cta">
-            <a href="/stays" className="btn-primary">
+            <a  onClick={(e) => {
+          e.preventDefault();
+          navigate("/stays");
+        }} className="btn-primary">
               Explore Stays
             </a>
           </div>
@@ -158,7 +162,10 @@ export default function Home() {
               meaningful touches.
             </p>
             <div>
-              <button className="story-btn">Discover More</button>
+              <button onClick={(e) => {
+          e.preventDefault();
+          navigate("/about");
+        }}  className="story-btn">Discover More</button>
             </div>
           </div>
         </div>
@@ -298,7 +305,10 @@ export default function Home() {
             and a cozy atmosphere allow you to unwind completely.
           </p>
 
-          <a href="/book" className="escape-btn">
+          <a onClick={(e) => {
+          e.preventDefault();
+          navigate("/stays");
+        }} className="escape-btn">
             BOOK NOW
           </a>
         </div>

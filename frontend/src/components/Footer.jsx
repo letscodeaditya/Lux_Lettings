@@ -50,7 +50,10 @@ export default function Footer() {
               <a href="#">Stay Rules</a>
             </li>
             <li>
-              <a href="/admin/login">admin</a>
+              <a href="" onClick={(e) => {
+          e.preventDefault();
+          navigate("/admin/login");
+        }}>admin</a>
             </li>
           </ul>
         </div>

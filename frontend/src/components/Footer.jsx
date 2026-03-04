@@ -1,4 +1,7 @@
+import { useNavigate } from "react-router-dom";
+
 export default function Footer() {
+   const navigate = useNavigate();
   return (
     <footer>
       <div className="footer-top">
@@ -45,6 +48,9 @@ export default function Footer() {
             </li>
             <li>
               <a href="#">Stay Rules</a>
+            </li>
+            <li>
+              <a href="/admin/login">admin</a>
             </li>
           </ul>
         </div>

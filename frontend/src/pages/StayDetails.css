@@ -302,73 +302,77 @@
   font-size: 14px;
 }
 
-.amenities-section {
-  margin-top: 80px;
-}
+.amenities-section { margin-top: 0; }
 
-.section-label {
-  color: #b48a71;
-  font-size: 12px;
-  letter-spacing: 2px;
-}
-
+/* .amen-title = section title for amenities */
 .amen-title {
-  font-size: 42px;
-  font-family: "Cormorant Garamond", serif;
-  font-weight: 500;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.8rem, 2.8vw, 2.6rem);
+  font-weight: 300;
+  color: var(--charcoal);
+  line-height: 1.1;
 }
+.amen-title em { font-style: italic; color: var(--deep-rose); }
 
-.amen-title em {
-  color: #a17055;
-  font-style: italic;
-}
-
-.title-underline {
-  width: 50px;
-  height: 2px;
-  background: #c7a893;
-  margin: 8px 0 25px;
-}
-
+/* 3-column blush-gapped grid */
 .amen-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  border-top: 1px solid #eadfd3;
-  border-left: 1px solid #eadfd3;
+  gap: 2px;
+  background: var(--blush);
+  border: none;
 }
 
+/* Each amenity cell */
 .amen-item {
-  padding: 28px;
-  border-right: 1px solid #eadfd3;
-  border-bottom: 1px solid #eadfd3;
+  background: var(--warm-white);
+  padding: 28px 24px;
   display: flex;
-  gap: 15px;
   align-items: flex-start;
+  gap: 14px;
+  border: none;
+  transition: background .3s;
 }
+.amen-item:hover { background: var(--cream); }
 
+/* Icon box */
 .amen-icon-box {
-  width: 45px;
-  height: 45px;
-  background: #fdf7f2;
-  border: 1px solid #eadfd3;
+  width: 38px;
+  height: 38px;
+  flex-shrink: 0;
+  border: 1px solid var(--blush);
+  background: var(--warm-white);
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: 1rem;
+  color: var(--rose);
+  transition: border-color .3s, background .3s;
+}
+.amen-item:hover .amen-icon-box {
+  border-color: var(--rose);
+  background: rgba(196,150,122,.08);
 }
 
+/* Amenity name */
 .amen-title-small {
-  font-size: 16px;
-  font-weight: 600;
-  color: #4a3b32;
+  font-size: .78rem;
+  font-weight: 300;
+  color: var(--charcoal);
+  line-height: 1.3;
+  margin-bottom: 3px;
 }
 
+/* Amenity description */
 .amen-desc {
-  font-size: 12px;
-  color: #8c827a;
+  font-size: .65rem;
+  color: var(--muted);
+  font-weight: 200;
+  line-height: 1.5;
 }
 
+/* Accent / empty cell */
 .amen-empty {
-  background: #ecd8c7;
-  border-right: 1px solid #eadfd3;
-  border-bottom: 1px solid #eadfd3;
+  background: var(--cream);
+  border: none;
 }

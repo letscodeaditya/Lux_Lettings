@@ -1,5 +1,6 @@
 import { useState } from "react";
 import api from "../api/axios.js";
+import imageCompression from "browser-image-compression";
 import "./CreateProperty.css";
 
 const CreateProperty = () => {
@@ -14,7 +15,6 @@ const CreateProperty = () => {
 
   const [images, setImages] = useState([]);
   const [preview, setPreview] = useState([]);
-
   const [msg, setMsg] = useState("");
 
   const [nearbyAttractions, setNearbyAttractions] = useState([]);
@@ -24,36 +24,41 @@ const CreateProperty = () => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  // Handle image selection
+  // handle image selection
   const handleImages = (e) => {
 
     const files = Array.from(e.target.files);
 
-    setImages(files);
+    setImages((prev) => [...prev, ...files]);
 
     const previewUrls = files.map(file => URL.createObjectURL(file));
-    setPreview(previewUrls);
+
+    setPreview((prev) => [...prev, ...previewUrls]);
   };
 
-  // Remove image
+  // remove image
   const removeImage = (index) => {
 
-    const newImages = images.filter((_, i) => i !== index);
-    const newPreview = preview.filter((_, i) => i !== index);
-
-    setImages(newImages);
-    setPreview(newPreview);
+    setImages((prev) => prev.filter((_, i) => i !== index));
+    setPreview((prev) => prev.filter((_, i) => i !== index));
   };
 
-  // Upload images to cloudinary
+  // upload images to cloudinary
   const uploadImages = async () => {
 
-    const urls = [];
+    const uploads = images.map(async (img) => {
 
-    for (const img of images) {
+      // compress image
+      const options = {
+        maxSizeMB: 1,
+        maxWidthOrHeight: 1920,
+        useWebWorker: true,
+      };
+
+      const compressedFile = await imageCompression(img, options);
 
       const data = new FormData();
-      data.append("file", img);
+      data.append("file", compressedFile);
       data.append("upload_preset", "luxlettings");
 
       const res = await fetch(
@@ -64,12 +69,12 @@ const CreateProperty = () => {
         }
       );
 
-      const file = await res.json();
+      const result = await res.json();
 
-      urls.push(file.secure_url);
-    }
+      return result.secure_url;
+    });
 
-    return urls;
+    return Promise.all(uploads);
   };
 
   const handleSubmit = async (e) => {
@@ -78,7 +83,11 @@ const CreateProperty = () => {
 
     try {
 
-      const imageUrls = await uploadImages();
+      let imageUrls = [];
+
+      if (images.length > 0) {
+        imageUrls = await uploadImages();
+      }
 
       const body = {
         name: form.name,
@@ -87,13 +96,14 @@ const CreateProperty = () => {
         description: form.description,
         capacity: Number(form.capacity),
         nearby: nearbyAttractions,
-        images: imageUrls
+        images: imageUrls,
       };
 
       await api.post("/api/properties", body);
 
       setMsg("Property created successfully!");
 
+      // reset form
       setForm({
         name: "",
         location: "",
@@ -158,7 +168,7 @@ const CreateProperty = () => {
             onChange={handleChange}
             rows="4"
             required
-          />
+          ></textarea>
 
           {/* IMAGE UPLOAD */}
 
@@ -192,7 +202,7 @@ const CreateProperty = () => {
 
           </div>
 
-          {/* NEARBY */}
+          {/* NEARBY ATTRACTIONS */}
 
           <label>Nearby Attractions</label>
 
@@ -209,8 +219,14 @@ const CreateProperty = () => {
               type="button"
               className="add-btn"
               onClick={() => {
+
                 if (nearbyInput.trim() !== "") {
-                  setNearbyAttractions([...nearbyAttractions, nearbyInput]);
+
+                  setNearbyAttractions([
+                    ...nearbyAttractions,
+                    nearbyInput
+                  ]);
+
                   setNearbyInput("");
                 }
               }}

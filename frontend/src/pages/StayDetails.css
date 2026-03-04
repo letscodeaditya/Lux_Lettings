@@ -1,163 +1,374 @@
-.property-page {
-  padding: 50px 60px;
-  font-family: 'Inter', sans-serif;
-}
-
-/* ================= HERO ================= */
-
-.property-hero {
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-}
-
-.hero-main img {
+/* ------------------ HERO ------------------ */
+.luxe-hero {
+  position: relative;
+  height: 95vh;
   width: 100%;
-  height: 520px;
-  object-fit: cover;
-  border-radius: 6px;
-  background: #2a1a12;
-}
-
-.hero-thumbs {
+  background-size: cover;
+  background-position: center;
   display: flex;
-  gap: 12px;
+  align-items: flex-end;
+  padding-bottom: 80px;
+  overflow: hidden;
 }
 
-.hero-thumbs img {
-  width: 110px;
-  height: 80px;
-  border-radius: 4px;
-  object-fit: cover;
-  opacity: 0.6;
+.hero-gradient {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at center,
+    rgba(80, 50, 30, 0.4) 0%,
+    rgba(35, 20, 10, 0.9) 100%
+  );
+}
+
+.hero-text {
+  position: absolute;
+  left: 60px;
+  bottom: 120px;
+  z-index: 10;
+  color: #fff4e6;
+}
+
+.breadcrumb {
+  text-transform: uppercase;
+  font-size: 13px;
+  letter-spacing: 2px;
+  opacity: 0.65;
+}
+
+.hero-title {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 82px;
+  font-weight: 300;
+  margin: 10px 0;
+}
+
+.hero-location {
+  font-size: 14px;
+  letter-spacing: 2px;
+  opacity: 0.8;
+}
+
+.hero-swatches {
+  position: absolute;
+  right: 40px;
+  bottom: 90px;
+  display: flex;
+  gap: 15px;
+  z-index: 20;
+}
+
+.swatch {
+  width: 90px;
+  height: 70px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background-size: cover;
+  background-position: center;
   cursor: pointer;
-  transition: 0.25s;
+  transition: 0.3s ease;
+  opacity: 0.7;
 }
 
-.hero-thumbs img.active-thumb,
-.hero-thumbs img:hover {
+.swatch:hover {
   opacity: 1;
-  transform: scale(1.05);
+  transform: translateY(-3px);
 }
 
-/* ================= DETAILS ================= */
-
-.property-details {
-  padding: 40px 0;
-  max-width: 650px;
+.swatch.active {
+  border: 2px solid #e3b994;
+  opacity: 1;
 }
 
-.p-index {
-  font-size: 2rem;
-  color: #cab09b;
+.view-photos {
+  position: absolute;
+  right: 50%;
+  bottom: 40px;
+  transform: translateX(50%);
+  color: #d9c6b4;
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  opacity: 0.8;
+}
+/* ------------------ SECTION ------------------ */
+.section {
+  margin-bottom: 60px;
 }
 
-.p-location {
-  letter-spacing: 0.2em;
-  font-size: 0.75rem;
-  color: #9a8f84;
-  margin-bottom: 14px;
+.section-heading {
+  font-size: 32px;
+  font-family: "Playfair Display", serif;
+  margin-bottom: 20px;
+  color: #3d2a1a;
 }
 
-.p-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 3.4rem;
-  margin-bottom: 18px;
-  color: #2e2622;
-}
-
-.p-title em {
-  font-style: italic;
-  color: #c59a78;
-}
-
-.p-description {
-  color: #5d544d;
-  line-height: 1.8;
-  margin-bottom: 24px;
-}
-
-.p-tags {
+/* ------------------ OVERVIEW ------------------ */
+/* WRAPPER */
+.luxe-body {
   display: flex;
-  flex-wrap: wrap;
+  gap: 80px;
+  padding: 40px 120px;
+}
+
+/* LEFT SIDE */
+.left-side {
+  flex: 1.4;
+}
+
+/* SECTION LABEL */
+.section-label {
+  font-size: 12px;
+  letter-spacing: 4px;
+  color: #b99f8a;
+  margin-bottom: 10px;
+}
+
+/* MAIN TITLE */
+.overview-title {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 42px;
+  font-weight: 500;
+}
+
+.overview-title em {
+  font-style: italic;
+  color: #a17256;
+}
+
+/* UNDERLINE */
+.title-underline {
+  width: 50px;
+  height: 2px;
+  background: #a17256;
+  margin: 15px 0 40px;
+}
+
+/* STATS CONTAINER */
+.stats-container {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  margin-bottom: 40px;
+}
+
+/* STATS */
+.stat-col {
+  text-align: center;
+  width: 130px;
+}
+
+.stat-number {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 32px;
+}
+
+.stat-label {
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: #b3a69a;
+}
+
+/* VERTICAL DIVIDER */
+.stat-divider {
+  width: 1px;
+  height: 50px;
+  background: #e6d9c8;
+}
+
+/* DESCRIPTION */
+.overview-desc {
+  max-width: 700px;
+  line-height: 1.8;
+  color: #6d625a;
+  margin-top: 25px;
+}
+
+
+
+/* ---------- RIGHT SIDE BOOKING PANEL ---------- */
+.right-side {
+  flex: 0.8;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.booking-box {
+  width: 360px;
+  padding: 35px;
+  border: 1px solid #f0e5d9;
+  background: #fffdf9;
+  border-radius: 4px;
+  height: 600px;
+}
+
+/* NAME */
+.book-title {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 32px;
+  margin-bottom: 5px;
+}
+
+.book-location {
+  color: #b3a69a;
+  margin-bottom: 25px;
+}
+
+/* BADGE */
+.availability-badge {
+  background: #e5fbe4;
+  color: #156628;
+  padding: 5px 12px;
+  border-radius: 4px;
+  font-size: 12px;
+  width: fit-content;
+  margin-bottom: 20px;
+}
+
+/* INPUT LABEL */
+.input-label {
+  font-size: 11px;
+  color: #9b8e82;
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+  display: block;
+}
+
+/* SELECT */
+.room-select {
+  width: 100%;
+  padding: 14px;
+  margin-bottom: 30px;
+  border: 1px solid #e4dacd;
+  background: #fdfaf7;
+}
+
+/* DATE FIELDS */
+.dates-row {
+  display: flex;
   gap: 10px;
 }
 
-.p-tag {
-  padding: 6px 14px;
-  background: #f5eee7;
-  border-radius: 20px;
-  font-size: 0.75rem;
-  color: #7a6f64;
-}
-
-/* ================= BOOKING PANEL ================= */
-
-.booking-panel {
-  background: #f9f6f2;
-  padding: 35px;
-  border-radius: 8px;
-  margin-top: 40px;
-  max-width: 380px;
-}
-
-.booking-panel h3 {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.8rem;
-  margin-bottom: 18px;
-}
-
-.booking-fields {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
+.date-col input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #e4dacd;
   margin-bottom: 25px;
 }
 
-.field label {
-  font-size: 0.75rem;
-  letter-spacing: 0.1em;
-  color: #85786e;
+/* GUEST COUNTER */
+.guest-counter {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 25px;
 }
 
-.field input,
-.field select {
-  width: 100%;
-  padding: 10px 12px;
-  background: #fcf8f4;
-  border: 1px solid #ded6ce;
-  font-size: 0.9rem;
-  border-radius: 4px;
+.guest-counter button {
+  width: 30px;
+  height: 30px;
+  border: 1px solid #ddd;
+  background: white;
 }
 
-.price-box {
+/* PRICE SUMMARY */
+.price-summary {
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+
+.summary-row {
   display: flex;
   justify-content: space-between;
-  padding: 12px 0;
-  margin-bottom: 25px;
-  border-top: 1px solid #e4dcd3;
+  margin: 8px 0;
 }
 
-.price-label {
-  color: #8a7f74;
+.total {
+  font-weight: bold;
 }
 
-.price-value {
-  font-size: 1.4rem;
-  color: #2c2420;
+.total-amount {
+  font-size: 22px;
+  color: #473223;
 }
 
-.book-btn {
+/* BOOK BUTTON */
+.book-now-btn {
   width: 100%;
-  padding: 14px;
-  background: #3a2a21;
+  padding: 18px;
+  background: #402a1f;
   color: white;
   border: none;
-  letter-spacing: 0.15em;
-  cursor: pointer;
-  transition: 0.25s;
+  letter-spacing: 2px;
+  font-size: 14px;
 }
 
-.book-btn:hover {
-  background: #000;
+.amenities-section {
+  margin-top: 80px;
+}
+
+.section-label {
+  color: #b48a71;
+  font-size: 12px;
+  letter-spacing: 2px;
+}
+
+.amen-title {
+  font-size: 42px;
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 500;
+}
+
+.amen-title em {
+  color: #a17055;
+  font-style: italic;
+}
+
+.title-underline {
+  width: 50px;
+  height: 2px;
+  background: #c7a893;
+  margin: 8px 0 25px;
+}
+
+.amen-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid #eadfd3;
+  border-left: 1px solid #eadfd3;
+}
+
+.amen-item {
+  padding: 28px;
+  border-right: 1px solid #eadfd3;
+  border-bottom: 1px solid #eadfd3;
+  display: flex;
+  gap: 15px;
+  align-items: flex-start;
+}
+
+.amen-icon-box {
+  width: 45px;
+  height: 45px;
+  background: #fdf7f2;
+  border: 1px solid #eadfd3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.amen-title-small {
+  font-size: 16px;
+  font-weight: 600;
+  color: #4a3b32;
+}
+
+.amen-desc {
+  font-size: 12px;
+  color: #8c827a;
+}
+
+.amen-empty {
+  background: #ecd8c7;
+  border-right: 1px solid #eadfd3;
+  border-bottom: 1px solid #eadfd3;
 }

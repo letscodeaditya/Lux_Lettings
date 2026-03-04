@@ -1,0 +1,237 @@
+/* PAGE BACKGROUND */
+
+.payment-container {
+  width: 100%;
+  min-height: 100vh;
+  background: #faf7f2;
+  display: flex;
+  justify-content: center;
+  padding: 60px 0;
+  gap: 40px;
+  font-family: "Inter", sans-serif;
+}
+
+
+/* LEFT SIDE */
+
+.payment-left {
+  width: 620px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+
+/* CARD */
+
+.section-box {
+  background: white;
+  padding: 30px;
+  border-radius: 8px;
+  border: 1px solid #eee;
+}
+
+
+/* SECTION TITLE */
+
+.section-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.section-num {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #8b5e3c;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+
+
+/* FORM GRID */
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.section-box input,
+.section-box select {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+}
+
+.section-box input:focus,
+.section-box select:focus {
+  outline: none;
+  border-color: #8b5e3c;
+}
+
+
+/* PAYMENT TYPE */
+
+.payment-type {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.payment-type button {
+  padding: 10px 16px;
+  border: 1px solid #ddd;
+  background: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.payment-type button.active {
+  border-color: #8b5e3c;
+  background: #f4ede7;
+}
+
+
+/* PAY BUTTON */
+
+.pay-btn {
+  width: 100%;
+  padding: 16px;
+  background: #8b5e3c;
+  color: white;
+  border: none;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.pay-btn:hover {
+  background: #6d472d;
+}
+
+
+/* RIGHT SIDE */
+
+.payment-right {
+  width: 360px;
+}
+
+
+/* SUMMARY CARD */
+
+.summary-box {
+  background: white;
+  padding: 25px;
+  border-radius: 10px;
+  border: 1px solid #eee;
+  position: sticky;
+  top: 80px;
+}
+
+
+/* PROPERTY IMAGE */
+
+.summary-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+
+/* PROPERTY TITLE */
+
+.summary-title {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.summary-location {
+  color: #777;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+
+/* CHECK IN OUT */
+
+.summary-dates {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.summary-dates .label {
+  font-size: 12px;
+  color: #888;
+}
+
+
+/* PRICE SUMMARY */
+
+.summary-pricing {
+  font-size: 14px;
+}
+
+.summary-pricing p {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.summary-pricing hr {
+  margin: 15px 0;
+  border: none;
+  border-top: 1px solid #eee;
+}
+
+
+/* TOTAL */
+
+.summary-total {
+  font-size: 22px;
+  font-weight: 600;
+  color: #8b5e3c;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 1000px) {
+
+  .payment-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .payment-right {
+    width: 620px;
+  }
+
+}
+
+@media (max-width: 700px) {
+
+  .payment-left,
+  .payment-right {
+    width: 95%;
+  }
+
+  .grid-2 {
+    grid-template-columns: 1fr;
+  }
+
+}

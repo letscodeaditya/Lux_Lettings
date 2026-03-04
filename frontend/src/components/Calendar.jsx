@@ -10,6 +10,7 @@ import {
   isAfter,
 } from "date-fns";
 import axios from "axios";
+import './calendar.css'
 
 const CalendarSection = () => {
   const [bookedDates, setBookedDates] = useState([]);
@@ -87,65 +88,86 @@ const CalendarSection = () => {
   };
 
   return (
-    <div className="calendar-wrapper" style={{ padding: "20px" }}>
-      <h2>Select Dates</h2>
+      <div className="calendar-section">
 
-      <div className="months-container" style={{ display: "flex", gap: "30px" }}>
-        {getNext3Months().map((monthObj, idx) => (
-          <div key={idx}>
-            <h3>{format(monthObj.month, "MMMM yyyy")}</h3>
+  <h2 className="section-heading">Select Your Dates</h2>
 
-            <div
-              className="calendar-grid"
-              style={{
-                display: "grid",
-                gridTemplateColumns: "repeat(7, 40px)",
-                gap: "6px",
-              }}
-            >
-              {monthObj.days.map((day, i) => {
-                const booked = isBooked(day);
-                const selected = isSelected(day);
-                const start = selectedRange.start && isSameDay(day, selectedRange.start);
-                const end = selectedRange.end && isSameDay(day, selectedRange.end);
+  {/* TOP ROW (2 months) */}
+  <div className="calendar-row">
+    {getNext3Months().slice(0, 2).map((monthObj, idx) => (
+      <div className="calendar-month" key={idx}>
+        <h3 className="month-name">{format(monthObj.month, "MMMM yyyy")}</h3>
 
-                return (
-                  <button
-                    key={i}
-                    onClick={() => handleSelectDate(day)}
-                    disabled={booked}
-                    style={{
-                      padding: "8px",
-                      borderRadius: "6px",
-                      border: "1px solid #ccc",
-                      backgroundColor: booked
-                        ? "red"
-                        : start || end
-                        ? "#4CAF50"
-                        : selected
-                        ? "#A5D6A7"
-                        : "white",
-                      color: booked ? "white" : "black",
-                      cursor: booked ? "not-allowed" : "pointer",
-                    }}
-                  >
-                    {format(day, "d")}
-                  </button>
-                );
-              })}
-            </div>
-          </div>
-        ))}
+        <div className="weekday-row">
+          <span>Su</span><span>Mo</span><span>Tu</span><span>We</span>
+          <span>Th</span><span>Fr</span><span>Sa</span>
+        </div>
+
+        <div className="calendar-grid">
+          {monthObj.days.map((day, i) => {
+            const booked = isBooked(day);
+            const selected = isSelected(day);
+            const start = selectedRange.start && isSameDay(day, selectedRange.start);
+            const end = selectedRange.end && isSameDay(day, selectedRange.end);
+
+            return (
+              <button
+                key={i}
+                className={`day 
+                    ${booked ? "booked" : ""} 
+                    ${start ? "start" : ""} 
+                    ${end ? "end" : ""} 
+                    ${selected ? "selected" : ""}`}
+                disabled={booked}
+                onClick={() => handleSelectDate(day)}
+              >
+                {format(day, "d")}
+              </button>
+            );
+          })}
+        </div>
       </div>
+    ))}
+  </div>
 
-      <pre style={{ marginTop: "20px", background: "#eee", padding: "10px" }}>
-        Selected Range:{" "}
-        {selectedRange.start && format(selectedRange.start, "dd MMM yyyy")} →{" "}
-        {selectedRange.end
-          ? format(selectedRange.end, "dd MMM yyyy")
-          : "Select end date"}
-      </pre>
-    </div>
+  {/* BOTTOM ROW (3rd month) */}
+  <div className="calendar-row center-row">
+    {getNext3Months().slice(2, 3).map((monthObj, idx) => (
+      <div className="calendar-month" key={idx}>
+        <h3 className="month-name">{format(monthObj.month, "MMMM yyyy")}</h3>
+
+        <div className="weekday-row">
+          <span>Su</span><span>Mo</span><span>Tu</span><span>We</span>
+          <span>Th</span><span>Fr</span><span>Sa</span>
+        </div>
+
+        <div className="calendar-grid">
+          {monthObj.days.map((day, i) => {
+            const booked = isBooked(day);
+            const selected = isSelected(day);
+            const start = selectedRange.start && isSameDay(day, selectedRange.start);
+            const end = selectedRange.end && isSameDay(day, selectedRange.end);
+
+            return (
+              <button
+                key={i}
+                className={`day 
+                    ${booked ? "booked" : ""} 
+                    ${start ? "start" : ""} 
+                    ${end ? "end" : ""} 
+                    ${selected ? "selected" : ""}`}
+                disabled={booked}
+                onClick={() => handleSelectDate(day)}
+              >
+                {format(day, "d")}
+              </button>
+            );
+          })}
+        </div>
+      </div>
+    ))}
+  </div>
+</div>
   );
 };
 

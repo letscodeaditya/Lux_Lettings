@@ -15,7 +15,7 @@ export const Login = async (req, res) => {
     // 1. CHECK IF ADMIN EXISTS
     const admin = await Admin.findOne({ email });
     if (!admin) {
-      return res.status(404).json({ message: 'User not found' });
+      return res.status(401).json({ message: 'User not found' });
     }
 
     // 2. CHECK HASHED PASSWORD

@@ -11,7 +11,7 @@ export default function CreateAdminTemp() {
 
     try {
       const res = await axios.post(
-        'https://localhost:3010/api/temp/create-temp-admin',
+        'http://localhost:3010/api/temp/create-temp-admin',
         {
           email,
           password,

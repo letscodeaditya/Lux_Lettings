@@ -169,12 +169,14 @@
   flex: 1;
   position: relative;
   height: 520px;
-}
+  
 
 .story-card {
   border-radius: 0;
   position: absolute;
+  
 }
+
 
 .card-1 {
   width: 75%;
@@ -185,6 +187,11 @@
   display: flex;
   align-items: flex-end;
   padding: 26px;
+ background-image: url('https://i.ibb.co/vC98qMDj/Balcony-JPG.jpg');
+  background-size: cover;       /* fill the div */
+  background-position: center;  /* center the image */
+  background-repeat: no-repeat;
+}
 }
 
 .card-2 {
@@ -193,6 +200,10 @@
   bottom: 0;
   right: 0;
   background: linear-gradient(135deg, var(--sage), #3d5c3a);
+  background-image: url('https://i.ibb.co/QvBqjWTz/r7-JPG.jpg');
+  background-size: cover;       /* fill the div */
+  background-position: center;  /* center the image */
+  background-repeat: no-repeat;
 }
 
 .card-label {

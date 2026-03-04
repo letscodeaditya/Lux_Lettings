@@ -1,49 +1,44 @@
-import { useState } from 'react';
-import './Stays.css';
+import { useState, useEffect } from "react";
+import api from "../api/axios";
+import StayCard from "../components/StayCard";
+import "./Stays.css";
 
 export default function Stays() {
-  const properties = [
-    {
-      id: 1,
-      title: 'The Boutique Stay',
-      subtitle: 'Urban Retreat',
-      city: 'Noida, Uttar Pradesh',
-      description:
-        'A calm, design-led studio crafted for modern living — peacefully located, yet effortlessly connected to the city’s essentials.',
-      features: [
-        'Private Studio',
-        'High-Speed WiFi',
-        'Work-Friendly',
-        'Quiet Location',
-      ],
-      price: '18,000',
-      image: '/images/stay1.jpg',
-    },
-  ];
+  const [properties, setProperties] = useState([]);
+  const [filterCity, setFilterCity] = useState("all");
 
-  const [index, setIndex] = useState(0);
-  const [filterCity, setFilterCity] = useState('all');
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await api.get("/api/properties/all");
+        // You have no images yet, so manually add a fallback image
+        const Images = res.data.map((p) => ({
+          ...p,
+          image: p.image || "https://i.ibb.co/vC98qMDj/Balcony-JPG.jpg"
+        }));
+        setProperties(Images);
+      } catch (error) {
+        console.error("Failed to fetch properties", error);
+      }
+    };
+    fetchData();
+  }, []);
 
   const filtered =
-    filterCity === 'all'
+    filterCity === "all"
       ? properties
-      : properties.filter((p) => p.city.includes(filterCity));
+      : properties.filter((p) =>
+          p.location?.toLowerCase().includes(filterCity.toLowerCase())
+        );
 
-  const current = filtered[index] || properties[0];
+  const uniqueCities = [...new Set(properties.map((p) => p.location))];
 
-  const next = () => {
-    setIndex((prev) => (prev + 1) % filtered.length);
-  };
-
-  const prev = () => {
-    setIndex((prev) => (prev - 1 + filtered.length) % filtered.length);
-  };
   return (
     <>
       <div className="page-hero">
         <div className="page-hero-content">
           <div className="breadcrumb">
-            <a href="#">Home</a>›<span>Stays</span>
+            <a href="#">Home</a> › <span>Stays</span>
           </div>
 
           <h1>
@@ -57,67 +52,33 @@ export default function Stays() {
       </div>
 
       <div className="stays-page">
-        {/* Top Bar */}
-
+        {/* Filter Bar */}
         <div className="stays-filter-bar">
           <button className="active-tab">ALL STAYS</button>
 
           <select
             className="city-dropdown"
-            onChange={(e) => {
-              setFilterCity(e.target.value);
-              setIndex(0);
-            }}
+            onChange={(e) => setFilterCity(e.target.value)}
           >
             <option value="all">Filter by City</option>
-            <option value="Noida">Noida</option>
+
+            {uniqueCities.map((city, idx) => (
+              <option key={idx} value={city}>
+                {city}
+              </option>
+            ))}
           </select>
         </div>
 
-        {/* Navigation Arrows */}
-        <button className="nav-arrow left" onClick={prev}>
-          ❮
-        </button>
-        <button className="nav-arrow right" onClick={next}>
-          ❯
-        </button>
-
-        {/* Main Content */}
-        <div className="property-container">
-          <div className="property-image">
-            <img src={current.image} alt={current.title} />
-          </div>
-
-          <div className="property-info">
-            <span className="property-index">0{index + 1}</span>
-
-            <span className="property-location">{current.city}</span>
-
-            <h1 className="property-title">
-              The <br />
-              <span>{current.title.replace('The ', '')}</span>
-            </h1>
-
-            <p className="property-description">{current.description}</p>
-
-            <div className="property-tags">
-              {current.features.map((tag, i) => (
-                <span key={i} className="tag">
-                  • {tag}
-                </span>
-              ))}
-            </div>
-
-            <div className="property-price">
-              <p>PER NIGHT</p>
-              <h2>₹ {current.price}</h2>
-            </div>
-
-            <div className="property-buttons">
-              <button className="details-btn">VIEW DETAILS</button>
-              <button className="book-btn">BOOK NOW</button>
-            </div>
-          </div>
+        {/* Property Cards List */}
+        <div className="stays-list">
+          {filtered.length === 0 ? (
+            <p>No properties found</p>
+          ) : (
+            filtered.map((property) => (
+              <StayCard key={property._id || property.id} property={property} />
+            ))
+          )}
         </div>
       </div>
     </>

@@ -10,9 +10,39 @@ export const getProperty = async (req, res) => {
   res.json(prop);
 };
 
+
 export const createProperty = async (req, res) => {
-  const prop = await Property.create(req.body);
-  res.json(prop);
+  try {
+    const {
+      name,
+      location,
+      price,
+      description,
+      capacity,
+      nearby
+    } = req.body;
+
+    const property = new Property({
+      name,
+      location,
+      price,
+      description,
+      capacity,
+      nearby
+    });
+
+    await property.save();
+
+    res.status(201).json({
+      success: true,
+      message: "Property created successfully",
+      property
+    });
+
+  } catch (err) {
+    console.error("Create Property Error:", err);
+    res.status(500).json({ message: "Server Error", error: err.message });
+  }
 };
 
 export const deleteProperty = async (req, res) => {

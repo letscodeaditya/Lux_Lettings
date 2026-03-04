@@ -7,6 +7,12 @@
   position: relative;
   overflow: hidden;
 }
+.stays-list {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  padding: 40px 0;
+}
 
 /* Glow gradients */
 .page-hero::before {

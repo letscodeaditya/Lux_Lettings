@@ -361,30 +361,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ==============================
-          DESTINATIONS
-      =============================== */}
-      <section className="destinations-section">
-        <div className="destinations-header">
-          <p className="destinations-tag">WHERE WE ARE</p>
 
-          <h2 className="destinations-title">
-            Our <em>Destinations</em>
-          </h2>
-        </div>
-
-        <div className="destinations-grid">
-          {/* Destination Card */}
-          <div className="destination-card">
-            <div className="destination-gradient"></div>
-
-            <div className="destination-info">
-              <h3 className="destination-name">Noida</h3>
-              <p className="destination-location">UTTAR PRADESH</p>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* ==============================
           TESTIMONIALS

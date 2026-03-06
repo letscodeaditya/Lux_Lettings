@@ -1,0 +1,126 @@
+/* PAGE */
+
+.properties-page{
+  padding:100px 60px;
+  background:#f6f7fb;
+  min-height:100vh;
+  font-family:Inter,sans-serif;
+}
+
+/* HEADER */
+
+.properties-topbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:24px;
+}
+
+.page-title{
+  font-size:28px;
+  font-weight:600;
+  color:#111827;
+}
+
+/* CREATE BUTTON */
+
+.create-property-btn{
+  background:#6366f1;
+  color:white;
+  border:none;
+  padding:8px 16px;
+  border-radius:6px;
+  font-size:14px;
+  cursor:pointer;
+  transition:0.2s;
+}
+
+.create-property-btn:hover{
+  background:#4f46e5;
+}
+
+/* TABLE CARD */
+
+.table-card{
+  background:white;
+  border-radius:10px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.08);
+  overflow:hidden;
+}
+
+/* TABLE */
+
+.properties-table{
+  width:100%;
+  border-collapse:collapse;
+}
+
+/* HEADER */
+
+.properties-table thead{
+  background:#f9fafb;
+}
+
+.properties-table th{
+  text-align:left;
+  padding:16px;
+  font-size:14px;
+  font-weight:600;
+  color:#374151;
+}
+
+/* ROWS */
+
+.properties-table td{
+  padding:16px;
+  border-top:1px solid #e5e7eb;
+  font-size:14px;
+  color:#374151;
+}
+
+/* IMAGE */
+
+.table-img{
+  width:90px;
+  height:60px;
+  object-fit:cover;
+  border-radius:6px;
+}
+
+/* OPEN BUTTON */
+
+.open-btn{
+  background:#6366f1;
+  color:white;
+  border:none;
+  padding:6px 12px;
+  border-radius:6px;
+  font-size:13px;
+  cursor:pointer;
+}
+
+.open-btn:hover{
+  background:#4f46e5;
+}
+
+.pagination{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:20px;
+  margin:25px;
+}
+
+.pagination button{
+  padding:6px 14px;
+  border:none;
+  border-radius:6px;
+  background:#6366f1;
+  color:white;
+  cursor:pointer;
+}
+
+.pagination button:disabled{
+  background:#c7c7c7;
+  cursor:not-allowed;
+}

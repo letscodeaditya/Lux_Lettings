@@ -89,7 +89,7 @@ export default function Home() {
             <a  onClick={(e) => {
           e.preventDefault();
           navigate("/stays");
-        }} className="btn-primary">
+        }} className="story-btn">
               Explore Stays
             </a>
           </div>
@@ -185,7 +185,10 @@ export default function Home() {
             </h2>
           </div>
 
-          <a href="/stays" className="collection-viewall">
+          <a onClick={(e) => {
+          e.preventDefault();
+          navigate("/stays");
+        }} className="collection-viewall">
             View All Properties →
           </a>
         </div>

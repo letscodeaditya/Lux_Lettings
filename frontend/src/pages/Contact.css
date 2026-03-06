@@ -44,8 +44,9 @@
 }
 
 .contact-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 4.8rem;
+   font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.8rem, 5.5vw, 5.5rem);
+  font-weight: 300;
   line-height: 1.1;
   color: #fff;
 }
@@ -78,6 +79,7 @@
 .form-title {
   font-family: 'Cormorant Garamond', serif;
   font-size: 2.8rem;
+font-weight: 300;
   margin-bottom: 10px;
 }
 
@@ -166,6 +168,7 @@ textarea {
 .info-title {
   font-family: 'Cormorant Garamond', serif;
   font-size: 1.3rem;
+  font-weight: 300;
   margin-bottom: 6px;
 }
 
@@ -180,6 +183,7 @@ textarea {
 .hours-section h3 {
   font-family: 'Cormorant Garamond', serif;
   font-size: 1.5rem;
+  font-weight: 300;
   margin-bottom: 30px;
 }
 

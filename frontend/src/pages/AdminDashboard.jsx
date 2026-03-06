@@ -2,14 +2,33 @@ import React from "react";
 import "./AdminDashboard.css";
 import { FaHome, FaEnvelope, FaCalendarCheck } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import { MdAddHomeWork } from "react-icons/md";
+import { FiLogOut } from "react-icons/fi";
 
 const AdminDashboard = () => {
+
   const navigate = useNavigate();
+
+  const handleLogout = () => {
+
+    localStorage.removeItem("adminToken"); // remove auth token
+   
+
+    navigate("/admin/login");
+  };
 
   return (
     <div className="admin-container">
 
-      <h1 className="admin-title">Admin Dashboard</h1>
+      <div className="admin-header">
+
+        <h1 className="admin-title">Admin Dashboard</h1>
+
+        <button className="logout-btn" onClick={handleLogout}>
+          <FiLogOut /> Logout
+        </button>
+
+      </div>
 
       <div className="dashboard-grid">
 
@@ -18,9 +37,19 @@ const AdminDashboard = () => {
           className="dashboard-card"
           onClick={() => navigate("/admin/create-property")}
         >
-          <FaHome className="card-icon" />
+          <MdAddHomeWork className="card-icon"/>
           <h3>Create Property</h3>
           <p>Add new property listing</p>
+        </div>
+
+        {/* Edit Property */}
+        <div
+          className="dashboard-card"
+          onClick={() => navigate("/admin/property-list")}
+        >
+          <FaHome className="card-icon" />
+          <h3>Edit Property</h3>
+          <p>Edit or remove property</p>
         </div>
 
         {/* Contact Messages */}

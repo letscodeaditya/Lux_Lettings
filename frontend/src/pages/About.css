@@ -102,16 +102,18 @@
   flex-direction: column;
   align-items: center;
   gap: 14px;
+  position: absolute;
+   z-index: 3;
+  right: 60px;
+  bottom: 80px;
 }
 
-.scroll-line {
-  height: 70px;
-  width: 1px;
-  background: linear-gradient(
-    to bottom,
-    rgba(255, 230, 210, 0.55),
-    transparent
-  );
+.scroll-l {
+  
+    width: 1px;
+  height: 60px;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.4), transparent);
+  animation: scrollPulse 2s infinite;
 }
 
 .scroll-indicator span {

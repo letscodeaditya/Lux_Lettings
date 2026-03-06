@@ -19,17 +19,17 @@ export default function About() {
   }, []);
 
   return (
-    <div className="about-page">
+    <div className="about-page ">
       {/* ===============================
           PAGE HERO SECTION
       ================================= */}
-      <section className="about-hero">
+      <section className="about-hero ">
         <div className="about-hero-overlay"></div>
         <div className="about-hero-grid"></div>
 
         <div className="about-hero-content">
           <p className="breadcrumb">
-            HOME <span>›</span> ABOUT US
+            {/* HOME <span>›</span> ABOUT US */}
           </p>
 
           <p className="hero-mini-tag">OUR STORY</p>
@@ -44,11 +44,11 @@ export default function About() {
             at home.
           </p>
 
+        </div>
           <div className="scroll-indicator">
-            <div className="scroll-line"></div>
+            <div className="scroll-l"></div>
             <span>SCROLL</span>
           </div>
-        </div>
       </section>
 
       {/* ===============================

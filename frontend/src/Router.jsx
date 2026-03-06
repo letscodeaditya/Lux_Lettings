@@ -12,6 +12,9 @@ import StayDetails from './pages/StayDetails';
 import Payment from './pages/Payment';
 import CreateProperty from './components/CreateProperty';
 import AdminMessages from './pages/AdminMessages';
+import EditProperty from './components/EditProperty';
+import AdminPropertyList from './components/AdminPropertyList';
+import NotFound from './pages/NotFound';
 ;
 
 export default function AppRouter() {
@@ -48,6 +51,22 @@ export default function AppRouter() {
         }
       />
       <Route
+        path="/admin/property-list"
+        element={
+          <AdminProtected>
+            <AdminPropertyList/>
+          </AdminProtected>
+        }
+      />
+      <Route
+        path="/admin/edit/:id"
+        element={
+          <AdminProtected>
+            <EditProperty/>
+          </AdminProtected>
+        }
+      />
+      <Route
         path="/admin/messages"
         element={
           <AdminProtected>
@@ -55,6 +74,8 @@ export default function AppRouter() {
           </AdminProtected>
         }
       />
+
+      <Route path="*" element={<NotFound />} />
     </Routes>
   );
 }

@@ -2,10 +2,14 @@ import { useState, useEffect } from "react";
 import api from "../api/axios";
 import StayCard from "../components/StayCard";
 import "./Stays.css";
+import Skeleton from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
+
 
 export default function Stays() {
   const [properties, setProperties] = useState([]);
   const [filterCity, setFilterCity] = useState("all");
+  const [loading, setLoading] = useState(true);
 
   // pagination state
   const [currentPage, setCurrentPage] = useState(1);
@@ -22,10 +26,14 @@ export default function Stays() {
     }));
 
     setProperties(Images);
-
+   
   } catch (error) {
     console.error("Failed to fetch properties", error);
-  }
+  }finally {
+
+  setLoading(false);
+
+    }
 };
 
     fetchData();
@@ -90,19 +98,40 @@ export default function Stays() {
           </select>
         </div>
 
-        {/* Property Cards */}
-        <div className="stays-list">
-          {currentStays.length === 0 ? (
-            <p>No properties found</p>
-          ) : (
-            currentStays.map((property) => (
-              <StayCard
-                key={property._id || property.id}
-                property={property}
-              />
-            ))
-          )}
+  <div className="stays-list">
+
+  {loading ? (
+
+    Array(4).fill(0).map((_, index) => (
+      <div key={index} className="stay-skeleton-card">
+
+        {/* <Skeleton height={260} /> */}
+
+        <div style={{padding:"10px 90px"}}>
+          <Skeleton width="60%" height={40}/>
+          <Skeleton width="40%" height={15}/>
+          <Skeleton width="30%" height={15}/>
         </div>
+
+      </div>
+    ))
+
+  ) : currentStays.length === 0 ? (
+
+    <p>No properties found</p>
+
+  ) : (
+
+    currentStays.map((property) => (
+      <StayCard
+        key={property._id || property.id}
+        property={property}
+      />
+    ))
+
+  )}
+
+</div>
 
         {/* Pagination */}
         {totalPages > 1 && (

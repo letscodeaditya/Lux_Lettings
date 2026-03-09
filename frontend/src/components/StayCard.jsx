@@ -1,26 +1,32 @@
-// components/StayCard.jsx
 import React from "react";
-import { useParams,useNavigate } from 'react-router-dom';
-
-
+import { useNavigate } from "react-router-dom";
+import { FaMapMarkerAlt } from "react-icons/fa";
 
 export default function StayCard({ property }) {
- const navigate = useNavigate();
- const id = property._id;
+  const navigate = useNavigate();
+  const id = property._id;
+
   return (
     <div className="property-container">
 
       <div className="property-image">
-        <img src={property.image} alt={property.Images} />
+        <img src={property.image} alt={property.name} />
       </div>
 
       <div className="property-info">
-        <span className="property-location">{property.city}</span>
+
+        {/* LOCATION */}
+  
 
         <h1 className="property-title">
           The <br />
           <span>{property.name.replace("The ", "")}</span>
         </h1>
+
+        <div className="property-location">
+          <FaMapMarkerAlt className="location-icon" />
+          <span>{property.location}</span>
+        </div>
 
         <p className="property-description">{property.description}</p>
 
@@ -36,11 +42,15 @@ export default function StayCard({ property }) {
         </div>
 
         <div className="property-buttons">
-          
-          <button className="book-btn" onClick={() => navigate(`/stays/${id}`)}>BOOK NOW</button>
+          <button
+            className="book-btn"
+            onClick={() => navigate(`/stays/${id}`)}
+          >
+            BOOK NOW
+          </button>
         </div>
-      </div>
 
+      </div>
     </div>
   );
 }

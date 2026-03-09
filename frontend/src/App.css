@@ -20,6 +20,7 @@
   --text: #2a2420;
   --border: rgba(196, 150, 122, 0.18);
   --border-light: rgba(196, 150, 122, 0.06);
+  
 }
 
 /* ---------------------------------------------------------
@@ -492,6 +493,19 @@ section { position: relative; }
 }
 
 /* Button */
+.story-btn1 {
+  display: inline-block;
+  margin-top: 10px;
+  background: var(--rose);
+  color: white;
+  padding: 16px 40px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  font-size: 0.65rem;
+  font-weight: 300;
+  text-decoration: none;
+  transition: all 0.3s;
+}
 .story-btn {
   display: inline-block;
   margin-top: 10px;
@@ -504,6 +518,7 @@ section { position: relative; }
   font-weight: 300;
   text-decoration: none;
   transition: all 0.3s;
+  border: 1px solid white;
 }
 
 .story-btn:hover {
@@ -1352,4 +1367,72 @@ footer {
   .testimonials    { padding: 60px 20px; }
   footer           { padding: 48px 20px 28px; }
   .footer-top      { grid-template-columns: 1fr; }
+}
+
+/* Tablet */
+@media (max-width:1024px){
+
+.collection-grid{
+  grid-template-columns: 1fr;
+  gap: 30px;
+}
+
+.property-card{
+  width: 100%;
+}
+
+.property-image{
+  height: 420px;
+}
+
+.property-desc{
+  padding: 0 20px;
+}
+
+}
+
+
+/* Mobile */
+@media (max-width:768px){
+
+.property-image{
+  height: 340px;
+  padding: 24px;
+}
+
+.prop-name{
+  font-size: 2rem;
+}
+
+.prop-location{
+  font-size: 0.6rem;
+}
+
+.collection-dot{
+  display: none;
+}
+
+}
+
+
+/* Small Mobile */
+@media (max-width:480px){
+
+.property-image{
+  height: 280px;
+  padding: 20px;
+}
+
+.prop-name{
+  font-size: 1.6rem;
+}
+
+.prop-location{
+  font-size: 0.55rem;
+}
+
+.property-desc{
+  font-size: 0.8rem;
+}
+
 }

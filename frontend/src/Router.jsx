@@ -15,6 +15,8 @@ import AdminMessages from './pages/AdminMessages';
 import EditProperty from './components/EditProperty';
 import AdminPropertyList from './components/AdminPropertyList';
 import NotFound from './pages/NotFound';
+import PaymentSuccess from './pages/PaymentSuccess';
+import AdminBookings from './pages/AdminBookings';
 ;
 
 export default function AppRouter() {
@@ -29,6 +31,7 @@ export default function AppRouter() {
       <Route path ="/stays/:id" element={<StayDetails/>}/>
       <Route path="/payment/:id/:start/:end/:nights/:amount" element={<Payment/>}/>
       <Route path="/admin/create-temp" element={<CreateAdminTemp />} />
+      <Route path="/booking-success" element={<PaymentSuccess/>} />
 
 
       {/* ADMIN ROUTES */}
@@ -71,6 +74,14 @@ export default function AppRouter() {
         element={
           <AdminProtected>
             <AdminMessages/>
+          </AdminProtected>
+        }
+      />
+      <Route
+        path="/admin/bookings"
+        element={
+          <AdminProtected>
+            <AdminBookings/>  
           </AdminProtected>
         }
       />

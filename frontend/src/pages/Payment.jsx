@@ -25,57 +25,82 @@ export default function Payment() {
   }, [id]);
 
   // HANDLE PAYMENT
-  const handlePay = async () => {
-    if (!guest.name || !guest.email || !guest.phone) {
-      alert("Please fill all required fields");
-      return;
-    }
+ const handlePay = async () => {
+  if (!guest.name || !guest.email || !guest.phone || !guest.country) {
+    alert("Please fill all required fields");
+    return;
+  }
 
+  try {
     // CREATE ORDER
-    const orderRes = await api.post("/api/payment/create-order", {
+    const orderRes = await api.post("/api/payments/order", {
       amount,
     });
 
     const { order } = orderRes.data;
 
     const options = {
-      key: "YOUR_RAZORPAY_KEY_ID",
+      key: import.meta.env.VITE_RAZORPAY_KEY_ID,
       amount: order.amount,
       currency: "INR",
-      name: property.name,
-      description: "Booking Payment",
       order_id: order.id,
+      description: "Booking Payment",
 
       handler: async function (response) {
-        const verifyRes = await api.post("/api/payment/verify", response);
-
-        if (verifyRes.data.success) {
-          alert("Payment Successful! 🎉");
-
-          navigate("/booking-success", {
-            state: {
-              property: property.name,
-              checkIn: start,
-              checkOut: end,
-              amount,
-            },
+        try {
+          const verifyRes = await api.post("/api/payments/verify", {
+            ...response,
+            propertyId: property._id,
+            name: guest.name,
+            email: guest.email,
+            phone: guest.phone,
+            checkIn: start,
+            checkOut: end,
+            amount,
           });
-        } else {
-          alert("Payment Failed");
+
+          if (verifyRes.data.success) {
+            navigate("/booking-success", {
+              state: {
+                guest_name: guest.name,
+                guest_email: guest.email,
+                guest_phone: guest.phone,
+                property: property.name,
+                property_id: id,
+                booking_id: verifyRes.data.bookingId,
+                checkIn: start,
+                checkOut: end,
+                amount,
+              },
+            });
+          } else {
+            alert("Payment verification failed");
+          }
+        } catch (err) {
+          console.error(err);
+          alert("Verification error");
         }
       },
 
       prefill: {
-        name: `${guest.first} ${guest.last}`,
+        name: guest.name,
         email: guest.email,
         contact: guest.phone,
       },
-      theme: { color: "#8B5E3C" },
+
+      theme: {
+        color: "#8B5E3C",
+      },
     };
 
     const rzp = new window.Razorpay(options);
     rzp.open();
-  };
+
+  } catch (err) {
+    console.error(err);
+    alert("Payment initialization failed");
+  }
+};
 
   if (!property) return <p>Loading...</p>;
 
@@ -93,7 +118,7 @@ export default function Payment() {
           <div className="grid-2">
             <input
               placeholder="Name"
-              onChange={(e) => setGuest({ ...guest, last: e.target.value })}
+              onChange={(e) => setGuest({ ...guest, name: e.target.value })}
             />
           </div>
 
@@ -108,26 +133,23 @@ export default function Payment() {
             />
           </div>
 
-          <select
-            onChange={(e) => setGuest({ ...guest, country: e.target.value })}
-          >
-            <option>India</option>
-            <option>USA</option>
-            <option>UK</option>
-            <option>Australia</option>
-          </select>
+         <select
+  value={guest.country}
+  onChange={(e) => setGuest({ ...guest, country: e.target.value })}
+>
+  <option value="">Select Country</option>
+  <option value="India">India</option>
+  <option value="USA">USA</option>
+  <option value="UK">UK</option>
+  <option value="Australia">Australia</option>
+</select>
         </div>
 
         {/* PAYMENT DETAILS */}
         <div className="section-box">
           <h3 className="section-title">
-            <span className="section-num">2</span> Payment Details
+            <span className="section-num">2</span> Pay Now
           </h3>
-
-          <div className="payment-type">
-            <button className="active">Credit / Debit Card</button>
-            <button>UPI</button>
-          </div>
 
           <button className="pay-btn" onClick={handlePay}>
             PAY ₹{amount}

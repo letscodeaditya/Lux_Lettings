@@ -1,0 +1,219 @@
+.admin-bookings {
+min-height: 80vh;
+  padding: 100px 20px;
+  background: #f6f7fb;
+  font-family: "Inter", sans-serif;
+}
+
+.admin-bookings h2 {
+  margin-bottom: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+thead {
+  background: #000000;
+  color: rgb(255, 255, 255);
+  
+}
+
+th,
+td {
+  padding: 14px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+tbody tr:hover {
+  background: #f5f5f5;
+}
+
+.status {
+  text-transform: capitalize;
+  font-weight: 600;
+}
+
+.status.confirmed {
+  color: green;
+}
+
+.status.pending {
+  color: orange;
+}
+
+.status.cancelled {
+  color: red;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+}
+
+.cancel-btn {
+  background: orange;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.cancel-btn:hover {
+  background: #e69500;
+}
+
+.delete-btn {
+  background: red;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.delete-btn:hover {
+  background: darkred;
+}
+
+.pagination {
+  margin-top: 20px;
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+}
+
+.pagination button {
+  padding: 6px 12px;
+  border: none;
+  background: #eee;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.pagination button:hover {
+  background: #ddd;
+}
+
+.active-page {
+  background: #111 !important;
+  color: white;
+}
+
+/* =========================================
+TABLET (horizontal scroll)
+========================================= */
+
+@media (max-width:1024px){
+
+.admin-bookings{
+  padding:30px 20px;
+}
+
+.admin-bookings table{
+  display:block;
+  overflow-x:auto;
+  white-space:nowrap;
+}
+
+}
+
+
+/* =========================================
+MOBILE (table becomes cards)
+========================================= */
+
+@media (max-width:768px){
+
+table,
+thead,
+tbody,
+th,
+td,
+tr{
+  display:block;
+}
+
+thead{
+  display:none;
+}
+
+tbody tr{
+  background:white;
+  border-radius:8px;
+  margin-bottom:15px;
+  padding:12px;
+  border:1px solid #eee;
+}
+
+td{
+  display:flex;
+  justify-content:space-between;
+  padding:10px;
+  border:none;
+  border-bottom:1px solid #f0f0f0;
+  font-size:14px;
+}
+
+td:last-child{
+  border-bottom:none;
+}
+
+/* labels for mobile */
+td::before{
+  font-weight:600;
+  color:#555;
+}
+
+/* Adjust action buttons */
+.actions{
+  justify-content:flex-end;
+  flex-wrap:wrap;
+  gap:8px;
+}
+
+.cancel-btn,
+.delete-btn{
+  padding:6px 10px;
+  font-size:13px;
+}
+
+}
+
+
+/* =========================================
+SMALL MOBILE
+========================================= */
+
+@media (max-width:480px){
+
+.admin-bookings{
+  padding:20px 12px;
+}
+
+td{
+  flex-direction:column;
+  align-items:flex-start;
+  gap:4px;
+}
+
+.actions{
+  justify-content:flex-start;
+}
+
+.pagination{
+  flex-wrap:wrap;
+}
+
+.pagination button{
+  padding:5px 10px;
+  font-size:13px;
+}
+
+}

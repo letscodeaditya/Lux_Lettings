@@ -2,16 +2,18 @@
 
 .contact-hero {
   height: 70vh;
-  background: radial-gradient(
+  /* background: radial-gradient(
       ellipse 70% 50% at center,
       rgba(70, 45, 30, 0.3),
       rgba(30, 18, 10, 0.86)
     ),
-    #1d130d;
+    #1d130d; */
   position: relative;
   padding: 0 60px;
   display: flex;
   align-items: flex-end;
+   background: linear-gradient(160deg, #3d2e27 0%, #1e1510 100%);
+
 }
 
 .contact-hero-grid {
@@ -198,4 +200,123 @@ textarea {
   margin-top: 20px;
   font-size: 0.7rem;
   color: #e3d4c8a2;
+}
+
+
+/* =========================================
+TABLET
+========================================= */
+
+@media (max-width:1024px){
+
+.contact-hero{
+  padding:0 40px;
+  height:60vh;
+}
+
+.contact-hero-content{
+  margin-bottom:70px;
+}
+
+.contact-section{
+  flex-direction:column;
+  padding:70px 40px;
+  gap:60px;
+}
+
+.contact-info{
+  width:100%;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+}
+
+.info-card{
+  margin-bottom:0;
+}
+
+.hours-section{
+  padding:50px 40px;
+}
+
+}
+
+
+/* =========================================
+MOBILE
+========================================= */
+
+@media (max-width:768px){
+
+.contact-hero{
+  height:auto;
+  padding:120px 24px 70px;
+}
+
+.contact-title{
+  font-size:2.6rem;
+}
+
+.contact-section{
+  padding:60px 24px;
+}
+
+.form-title{
+  font-size:2.2rem;
+}
+
+.form-desc{
+  width:100%;
+}
+
+.contact-form .row{
+  flex-direction:column;
+}
+
+.contact-info{
+  grid-template-columns:1fr;
+}
+
+.info-card{
+  padding:30px;
+}
+
+.hours-section{
+  padding:50px 24px;
+}
+
+.hours-row{
+  font-size:0.85rem;
+}
+
+}
+
+
+/* =========================================
+SMALL MOBILE
+========================================= */
+
+@media (max-width:480px){
+
+.contact-title{
+  font-size:2rem;
+}
+
+.form-title{
+  font-size:1.8rem;
+}
+
+.send-btn{
+  width:100%;
+}
+
+.hours-section h3{
+  font-size:1.3rem;
+}
+
+.hours-row{
+  flex-direction:column;
+  gap:4px;
+}
+
 }

@@ -81,7 +81,7 @@ export default function Stays() {
         <div className="stays-filter-bar">
           <button className="active-tab">ALL STAYS</button>
 
-          <select
+          {/* <select
             className="city-dropdown"
             onChange={(e) => {
               setFilterCity(e.target.value);
@@ -95,7 +95,7 @@ export default function Stays() {
                 {city}
               </option>
             ))}
-          </select>
+          </select> */}
         </div>
 
   <div className="stays-list">
@@ -116,11 +116,42 @@ export default function Stays() {
       </div>
     ))
 
-  ) : currentStays.length === 0 ? (
+ ) : currentStays.length === 0 ? (
 
-    <p>No properties found</p>
+  <div className="no-property">
+    
+    <svg
+      width="160"
+      height="160"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className="no-property-icon"
+    >
+      <path
+        d="M3 10L12 3L21 10V20C21 20.55 20.55 21 20 21H4C3.45 21 3 20.55 3 20V10Z"
+        stroke="#c4967a"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M9 21V12H15V21"
+        stroke="#c4967a"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
 
-  ) : (
+    <h3>No Properties Available</h3>
+    <p>
+      We couldn’t find any stays right now. Please check back later.
+    </p>
+
+  </div>
+
+) : (
 
     currentStays.map((property) => (
       <StayCard

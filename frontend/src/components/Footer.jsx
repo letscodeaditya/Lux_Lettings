@@ -41,13 +41,22 @@ export default function Footer() {
           <p className="footer-col-title">Quick Links</p>
           <ul className="footer-links">
             <li>
-              <a href="#">Check-in & Check-out</a>
+              <a href="" onClick={(e) => {
+          e.preventDefault();
+          navigate("/");
+        }}>Home</a>
             </li>
             <li>
-              <a href="#">Stay Policy</a>
+              <a href="" onClick={(e) => {
+          e.preventDefault();
+          navigate("/about");
+        }}>About us</a>
             </li>
             <li>
-              <a href="#">Stay Rules</a>
+              <a href="" onClick={(e) => {
+          e.preventDefault();
+          navigate("/contact");
+        }}>Contact</a>
             </li>
             <li>
               <a href="" onClick={(e) => {
@@ -55,12 +64,12 @@ export default function Footer() {
           navigate("/admin/login");
         }}>admin</a>
             </li>
-            {/* <li>
+            <li>
               <a href="" onClick={(e) => {
           e.preventDefault();
           navigate("/admin/create-temp");
         }}>admin</a>
-            </li> */}
+            </li>
           </ul>
         </div>
 

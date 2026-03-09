@@ -41,24 +41,26 @@ const AdminMessages = () => {
       </thead>
 
       <tbody>
-        {messages.map((msg) => (
-          <tr key={msg._id}>
-            <td>{msg.firstName}</td>
+  {messages.map((msg) => (
+    <tr key={msg._id}>
+      <td data-label="Name">
+        {msg.firstName}
+      </td>
 
-            <td className="email-text">
-              {msg.email}
-            </td>
+      <td data-label="Email" className="email-text">
+        {msg.email}
+      </td>
 
-            <td className="msg-preview">
-              {msg.message}
-            </td>
+      <td data-label="Message" className="msg-preview">
+        {msg.message}
+      </td>
 
-            <td>
-              {new Date(msg.createdAt).toLocaleDateString()}
-            </td>
-          </tr>
-        ))}
-      </tbody>
+      <td data-label="Date">
+        {new Date(msg.createdAt).toLocaleDateString()}
+      </td>
+    </tr>
+  ))}
+</tbody>
     </table>
 
     <div className="pagination">

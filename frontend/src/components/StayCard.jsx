@@ -9,8 +9,8 @@ export default function StayCard({ property }) {
   return (
     <div className="property-container">
 
-      <div className="property-image">
-        <img src={property.image} alt={property.name} />
+      <div className="property-image1">
+        <img src={property.images[0]} />
       </div>
 
       <div className="property-info">

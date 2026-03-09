@@ -58,12 +58,12 @@ export default function Footer() {
           navigate("/contact");
         }}>Contact</a>
             </li>
-            <li>
+            {/* <li>
               <a href="" onClick={(e) => {
           e.preventDefault();
           navigate("/admin/login");
         }}>admin</a>
-            </li>
+            </li> */}
             {/* <li>
               <a href="" onClick={(e) => {
           e.preventDefault();
@@ -77,10 +77,16 @@ export default function Footer() {
           <p className="footer-col-title">About</p>
           <ul className="footer-links">
             <li>
-              <a href="#">Our Story</a>
+              <a href="#" onClick={(e) => {
+          e.preventDefault();
+          navigate("/about");
+        }}>Our Story</a>
             </li>
             <li>
-              <a href="#">Our Vision</a>
+              <a href="#" onClick={(e) => {
+          e.preventDefault();
+          navigate("/about");
+        }}>Our Vision</a>
             </li>
           </ul>
         </div>

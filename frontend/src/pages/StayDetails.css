@@ -26,7 +26,7 @@
   left: 60px;
   bottom: 120px;
   z-index: 10;
-  color: #fff4e6;
+
 }
 
 .breadcrumb {
@@ -47,6 +47,7 @@
   font-size: 14px;
   letter-spacing: 2px;
   opacity: 0.8;
+  color: white;
 }
 
 .hero-swatches {
@@ -563,47 +564,3 @@ font-size: 12px;
 
 }
 
-@media (max-width:480px){
-
-.luxe-hero{
-  height:60vh;
-}
-
-.hero-title{
-  font-size:32px;
-}
-
-.hero-text{
-  left:16px;
-  bottom:70px;
-}
-
-.hero-swatches{
-  display:none;
-}
-
-.luxe-body{
-  padding:24px 16px;
-}
-
-.overview-title{
-  font-size:26px;
-}
-
-.booking-box{
-  padding:20px;
-}
-
-.summary-row{
-  font-size:14px;
-}
-
-.total-amount{
-  font-size:18px;
-}
-
-.book-now-btn{
-  font-size:13px;
-}
-
-}

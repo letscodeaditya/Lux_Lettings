@@ -65,6 +65,16 @@ export default function Home() {
           HERO
       =============================== */}
       <section className="hero">
+         <video
+    className="hero-video"
+    autoPlay
+    muted
+    loop
+    playsInline
+  >
+    <source src="https://res.cloudinary.com/dafnog4ll/video/upload/v1773058509/Lux_Lettings_video_drhbmv.mp4" type="video/mp4" />
+  </video>
+  
         <div className="hero-bg"></div>
         <div className="hero-overlay"></div>
 
@@ -195,12 +205,15 @@ export default function Home() {
 
         <div className="collection-grid">
           {/* PROPERTY CARD */}
-          <div className="property-card">
+          <div onClick={(e) => {
+          e.preventDefault();
+          navigate("/stays");
+        }} className="property-card" >
             <div className="property-image">
               <div className="property-info">
                 <p className="prop-type">Urban Retreat</p>
 
-                <h3 className="prop-name">
+                <h3  className="prop-name">
                   The
                   <br />
                   Boutique

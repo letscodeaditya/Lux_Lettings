@@ -190,7 +190,7 @@ export default function Contact() {
             <h4>EMAIL</h4>
             <p className="info-title">Write to Us</p>
             <p>Enquiry: bookings@luxlettings.in</p>
-            <p>General: luxlettings6@gmail.com</p>
+            <p>General: luxlettings30@gmail.com</p>
           </div>
 
           <div className="info-card">

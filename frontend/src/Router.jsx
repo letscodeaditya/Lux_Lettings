@@ -30,7 +30,7 @@ export default function AppRouter() {
       <Route path="/contact" element={<Contact />} />
       <Route path ="/stays/:id" element={<StayDetails/>}/>
       <Route path="/payment/:id/:start/:end/:nights/:amount" element={<Payment/>}/>
-      {/* <Route path="/admin/create-temp" element={<CreateAdminTemp />} /> */}
+      <Route path="/admin/create-temp" element={<CreateAdminTemp />} />
       <Route path="/booking-success" element={<PaymentSuccess/>} />
 
 

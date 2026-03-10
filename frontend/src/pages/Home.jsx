@@ -89,11 +89,11 @@ export default function Home() {
             Designed
           </h1>
 
-          <p className="hero-subtitle">
+          {/* <p className="hero-subtitle">
             A design-led boutique stay. A peaceful studio crafted with warmth,
             simplicity, and intention. An intimate space where comfort feels
             personal and every detail has meaning.
-          </p>
+          </p> */}
 
           <div className="hero-cta">
             <a  onClick={(e) => {
